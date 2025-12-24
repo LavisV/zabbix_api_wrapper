@@ -1,5 +1,5 @@
 # resources/icon_map.py
-
+# https://www.zabbix.com/documentation/7.0/en/manual/api/reference/iconmap
 try:
     from ..base import ZabbixBase
 except ImportError:

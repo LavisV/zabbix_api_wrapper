@@ -1,5 +1,5 @@
 # resources/authentication.py
-
+# https://www.zabbix.com/documentation/7.0/en/manual/api/reference/authentication
 try:
     from ..base import ZabbixBase
 except ImportError:

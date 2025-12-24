@@ -1,4 +1,5 @@
 # resources/maintenance.py
+# https://www.zabbix.com/documentation/7.0/en/manual/api/reference/maintenance
 
 try:
     from ..base import ZabbixBase

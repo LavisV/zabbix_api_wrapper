@@ -1,4 +1,5 @@
 # resources/configuration.py
+# https://www.zabbix.com/documentation/7.0/en/manual/api/reference/configuration
 
 try:
     from ..base import ZabbixBase

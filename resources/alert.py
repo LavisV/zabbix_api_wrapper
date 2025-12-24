@@ -1,4 +1,5 @@
 # resources/alert.py
+# https://www.zabbix.com/documentation/7.0/en/manual/api/reference/alert
 
 try:
     from ..base import ZabbixBase

@@ -1,4 +1,5 @@
 # resources/user.py
+# https://www.zabbix.com/documentation/7.0/en/manual/api/reference/user
 
 try:
     from ..base import ZabbixBase

@@ -1,4 +1,5 @@
 # resources/trend.py
+# https://www.zabbix.com/documentation/7.0/en/manual/api/reference/trend
 
 try:
     from ..base import ZabbixBase

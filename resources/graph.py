@@ -1,4 +1,5 @@
 # resources/graph.py
+# https://www.zabbix.com/documentation/7.0/en/manual/api/reference/graph
 
 try:
     from ..base import ZabbixBase

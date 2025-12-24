@@ -1,4 +1,5 @@
 # resources/lld_rule.py
+# https://www.zabbix.com/documentation/7.0/en/manual/api/reference/discoveryrule
 
 try:
     from ..base import ZabbixBase

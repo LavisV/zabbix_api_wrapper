@@ -1,4 +1,5 @@
 # resources/action.py
+# https://www.zabbix.com/documentation/7.0/en/manual/api/reference/action
 
 try:
     from ..base import ZabbixBase
@@ -17,8 +18,8 @@ class ActionResource(ZabbixBase):
     def delete(self, actionid):
         return self._call(f"{self.API_METHOD}.delete", actionids=[actionid])
     
-    def get(self, actionid=None, **filters):
-        return self._call(f"{self.API_METHOD}.get", actionid=actionid, **filters)
+    def get(self, **filters):
+        return self._call(f"{self.API_METHOD}.get", **filters)
     
     def massadd(self, **params):
         return self._call(f"{self.API_METHOD}.massadd", **params)

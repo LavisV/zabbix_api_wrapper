@@ -1,4 +1,5 @@
 # resources/mfa.py
+# https://www.zabbix.com/documentation/7.0/en/manual/api/reference/mfa
 
 try:
     from ..base import ZabbixBase

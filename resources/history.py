@@ -1,4 +1,5 @@
 # resources/history.py
+# https://www.zabbix.com/documentation/7.0/en/manual/api/reference/history
 
 try:
     from ..base import ZabbixBase

@@ -1,4 +1,5 @@
 # resources/task.py
+# https://www.zabbix.com/documentation/7.0/en/manual/api/reference/task
 
 try:
     from ..base import ZabbixBase

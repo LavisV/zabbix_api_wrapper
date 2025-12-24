@@ -1,4 +1,5 @@
 # resources/connector.py
+# https://www.zabbix.com/documentation/7.0/en/manual/api/reference/connector
 
 try:
     from ..base import ZabbixBase

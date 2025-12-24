@@ -1,4 +1,5 @@
 # resources/value_map.py
+# https://www.zabbix.com/documentation/7.0/en/manual/api/reference/valuemap
 
 try:
     from ..base import ZabbixBase

@@ -1,4 +1,5 @@
 # resources/discovered_service.py
+# https://www.zabbix.com/documentation/7.0/en/manual/api/reference/dservice
 
 try:
     from ..base import ZabbixBase

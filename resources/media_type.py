@@ -1,4 +1,5 @@
 # resources/media_type.py
+# https://www.zabbix.com/documentation/7.0/en/manual/api/reference/mediatype
 
 try:
     from ..base import ZabbixBase

@@ -1,4 +1,5 @@
 # resources/event.py
+# https://www.zabbix.com/documentation/7.0/en/manual/api/reference/event
 
 try:
     from ..base import ZabbixBase

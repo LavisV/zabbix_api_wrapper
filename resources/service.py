@@ -1,4 +1,5 @@
 # resources/service.py
+# https://www.zabbix.com/documentation/7.0/en/manual/api/reference/service
 
 try:
     from ..base import ZabbixBase

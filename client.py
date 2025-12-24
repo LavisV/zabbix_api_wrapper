@@ -201,16 +201,31 @@ class ZabbixClient:
         })   
         
 
-    def _request(self, method, params=None):
-        response = self._session.post(
-            self.config.zabbix_server,
-            json={
-                "jsonrpc": "2.0",
-                "method": method,
-                "params": params or {},
-                "id": 1,
-            },
-            timeout=self.config.timeout,
-            verify=self.config.verify_ssl,
-        )
+    def _request(self, method, params=None, skip_auth=False):
+        payload = {
+            "jsonrpc": "2.0",
+            "method": method,
+            "params": params or {},
+            "id": 1,
+        }
+        
+        if skip_auth:
+            # Make request without authorization header
+            headers = {"Content-Type": "application/json"}
+            response = requests.post(
+                self.config.zabbix_server,
+                json=payload,
+                headers=headers,
+                timeout=self.config.timeout,
+                verify=self.config.verify_ssl,
+            )
+        else:
+            # Use session (includes auth header and connection pooling)
+            response = self._session.post(
+                self.config.zabbix_server,
+                json=payload,
+                timeout=self.config.timeout,
+                verify=self.config.verify_ssl,
+            )
+        
         return response.json()

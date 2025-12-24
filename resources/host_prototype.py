@@ -1,4 +1,5 @@
 # resources/host_prototype.py
+# https://www.zabbix.com/documentation/7.0/en/manual/api/reference/hostprototype
 
 try:
     from ..base import ZabbixBase

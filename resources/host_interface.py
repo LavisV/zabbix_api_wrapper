@@ -1,4 +1,5 @@
 # resources/host_interface.py
+# https://www.zabbix.com/documentation/7.0/en/manual/api/reference/hostinterface
 
 try:
     from ..base import ZabbixBase

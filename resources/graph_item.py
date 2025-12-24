@@ -1,4 +1,5 @@
 # resources/graph_item.py
+# https://www.zabbix.com/documentation/7.0/en/manual/api/reference/graphitem
 
 try:
     from ..base import ZabbixBase

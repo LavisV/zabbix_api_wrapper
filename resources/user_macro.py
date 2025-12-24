@@ -1,4 +1,5 @@
 # resources/user_macro.py
+# https://www.zabbix.com/documentation/7.0/en/manual/api/reference/usermacro
 
 try:
     from ..base import ZabbixBase

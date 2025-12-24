@@ -1,4 +1,5 @@
 # resources/discovered_host.py
+# https://www.zabbix.com/documentation/7.0/en/manual/api/reference/dhost
 
 try:
     from ..base import ZabbixBase

@@ -1,4 +1,5 @@
 # resources/housekeeping.py
+# https://www.zabbix.com/documentation/7.0/en/manual/api/reference/housekeeping
 
 try:
     from ..base import ZabbixBase

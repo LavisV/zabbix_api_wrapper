@@ -1,4 +1,5 @@
 # resources/template_dashboard.py
+# https://www.zabbix.com/documentation/7.0/en/manual/api/reference/templatedashboard
 
 try:
     from ..base import ZabbixBase

@@ -1,4 +1,5 @@
 # resources/report.py
+# https://www.zabbix.com/documentation/7.0/en/manual/api/reference/report
 
 try:
     from ..base import ZabbixBase

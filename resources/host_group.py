@@ -1,4 +1,5 @@
 # resources/host_group.py
+# https://www.zabbix.com/documentation/7.0/en/manual/api/reference/hostgroup
 
 try:
     from ..base import ZabbixBase

@@ -1,4 +1,5 @@
 # resources/autoregistration.py
+# https://www.zabbix.com/documentation/7.0/en/manual/api/reference/autoregistration
 
 try:
     from ..base import ZabbixBase

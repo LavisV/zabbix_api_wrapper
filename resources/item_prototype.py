@@ -1,4 +1,5 @@
 # resources/item_prototype.py
+# https://www.zabbix.com/documentation/7.0/en/manual/api/reference/itemprototype
 
 try:
     from ..base import ZabbixBase
