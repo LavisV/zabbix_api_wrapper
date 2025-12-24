@@ -1,0 +1,81 @@
+# config.py.template
+# 
+# Copy this file to config.py and fill in your Zabbix API credentials.
+# config.py is git-ignored and will not be committed to the repository.
+#
+# Two configuration approaches are provided below:
+#   1. Hard-coded values (simple, but less secure)
+#   2. Environment variables (recommended for production)
+
+import os
+
+
+class ZabbixConfig:
+    """
+    Configuration class for Zabbix API client.
+    
+    Supports multiple environments (prod, dev, local) with different
+    server URLs, timeouts, and SSL verification settings.
+    """
+    
+    def __init__(self, environment="dev", api_token=None):
+        """
+        Initialize Zabbix configuration for the specified environment.
+        
+        Args:
+            environment: One of "prod", "dev", or "local"
+            api_token: Optional API token. If not provided, will attempt to
+                      read from environment variable or use hardcoded value.
+        """
+        self.environment = environment
+
+        if self.environment == "prod":
+            # Production environment configuration
+            self.zabbix_server = "https://your-zabbix-prod-server.com/zabbix/api_jsonrpc.php"
+            self.timeout = 30
+            self.verify_ssl = True
+            
+            # Option 1: Hard-coded token (not recommended for production)
+            # self.api_token = "your-production-api-token-here"
+            
+            # Option 2: Environment variable (recommended)
+            # Set environment variable: export ZABBIX_PROD_TOKEN="your-token"
+            self.api_token = api_token or os.getenv("ZABBIX_PROD_TOKEN") or "your-production-api-token-here"
+
+        elif self.environment == "dev":
+            # Development environment configuration
+            self.zabbix_server = "https://your-zabbix-dev-server.com/zabbix/api_jsonrpc.php"
+            self.timeout = 60
+            self.verify_ssl = False  # Often False in dev environments
+            
+            # Option 1: Hard-coded token
+            # self.api_token = "your-development-api-token-here"
+            
+            # Option 2: Environment variable
+            # Set environment variable: export ZABBIX_DEV_TOKEN="your-token"
+            self.api_token = api_token or os.getenv("ZABBIX_DEV_TOKEN") or "your-development-api-token-here"
+
+        elif self.environment == "local":
+            # Local development environment configuration
+            self.zabbix_server = "http://localhost:8080/zabbix/api_jsonrpc.php"
+            self.timeout = 10
+            self.verify_ssl = False
+            
+            # Option 1: Hard-coded token
+            # self.api_token = "your-local-api-token-here"
+            
+            # Option 2: Environment variable
+            # Set environment variable: export ZABBIX_LOCAL_TOKEN="your-token"
+            self.api_token = api_token or os.getenv("ZABBIX_LOCAL_TOKEN") or "your-local-api-token-here"
+
+        else:
+            raise ValueError(f"Unknown environment: {self.environment}. Must be one of: prod, dev, local")
+        
+        # Validate that API token is set
+        if not self.api_token or self.api_token.startswith("your-"):
+            raise ValueError(
+                f"API token not configured for environment '{self.environment}'. "
+                f"Please set ZABBIX_{self.environment.upper()}_TOKEN environment variable "
+                f"or update the hardcoded token in config.py"
+            )
+
