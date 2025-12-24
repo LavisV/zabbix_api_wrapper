@@ -153,7 +153,7 @@ class ZabbixClient:
         self.graph_prototype = GraphPrototypeResource(self)
         self.high_availability_node = HighAvailabilityNodeResource(self)
         self.history = HistoryResource(self)
-        self.hosts = HostResource(self)
+        self.host = HostResource(self)
         self.host_group = HostGroupResource(self)
         self.host_interface = HostInterfaceResource(self)
         self.host_prototype = HostPrototypeResource(self)

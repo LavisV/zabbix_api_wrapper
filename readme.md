@@ -15,7 +15,7 @@ Please note that this is very much a WIP, not all methods have been tested at th
 1. Clone this repository:
 
     ```bash
-    git clone <repository-url>
+    git clone https://github.com/LavisV/zabbix_api_wrapper
     cd zabbix-api-wrapper
     ```
 
