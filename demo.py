@@ -6,18 +6,15 @@ client = ZabbixClient(environment="dev")
 
 # Simple get query
 hosts = client.host.get()
-tklab_hosts = {
+servers = {
     "name": [],
     "hostid": []
 }
 
 for host in hosts["result"]:
-    if "tklab" in host["name"].lower():
-        tklab_hosts["name"].append(host["name"])
-        tklab_hosts["hostid"].append(host["hostid"])
+    if "server" in host["name"].lower():
+        servers["name"].append(host["name"])
+        servers["hostid"].append(host["hostid"])
 
-print(tklab_hosts["name"])
-print(tklab_hosts["hostid"])
-
-api_info = client.apiinfo.version()
-print(api_info)
+print(servers["name"])
+print(servers["hostid"])
