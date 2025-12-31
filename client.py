@@ -4,7 +4,9 @@
 # Instantiates all resource classes and passes `self` to them
 
 import requests
-try:
+
+try: 
+    # if the file is imported as a module, use the relative paths
     from .config import ZabbixConfig
     from .resources.action import ActionResource
     from .resources.alert import AlertResource
@@ -66,8 +68,8 @@ try:
     from .resources.value_map import ValueMapResource
     from .resources.web_scenario import WebScenarioResource
 except ImportError:
+    # if the file is not imported as a module, use the absolute paths
     from config import ZabbixConfig
-    # Zabbix API Resources
     from resources.action import ActionResource
     from resources.alert import AlertResource
     from resources.apiinfo import ApiInfoResource
