@@ -50,6 +50,7 @@ coverage.xml
 .hypothesis/
 .pytest_cache/
 *test*
+*.test.py
 config.py
 cover/
 

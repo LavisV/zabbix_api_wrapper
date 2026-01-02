@@ -111,7 +111,6 @@ class SLAResource(ZabbixBase):
             period_from (int, required): Start time of the period (Unix timestamp).
             period_to (int, required): End time of the period (Unix timestamp).
             periods (int, optional): Number of periods to retrieve.
-            periods_count (int, optional): Number of periods for calculation.
             serviceids (list, optional): Service IDs to calculate SLI for.
         
         Returns:
