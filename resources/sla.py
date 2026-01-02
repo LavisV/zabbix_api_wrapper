@@ -45,34 +45,34 @@ class SLAResource(ZabbixBase):
         """
         return self._call(f"{self.API_METHOD}.create", **params)
     
-    def delete(self, slaid):
+    def delete(self, slaids):
         """
         Delete SLA objects.
         
         Args:
-            slaid (str|list): ID or list of IDs of SLAs to delete.
+            slaids (str|list): ID or list of IDs of SLAs to delete.
         
         Returns:
             dict: API response containing the IDs of deleted SLAs.
         
         Example:
             >>> # Delete a single SLA
-            >>> zapi.slas.delete(slaid="1")
+            >>> zapi.slas.delete(slaids="1")
             >>> 
             >>> # Delete multiple SLAs
-            >>> zapi.slas.delete(slaid=["1", "2"])
+            >>> zapi.slas.delete(slaids=["1", "2"])
         
         See Also:
             Zabbix API Documentation: https://www.zabbix.com/documentation/7.0/en/manual/api/reference/sla/delete
         """
-        return self._call(f"{self.API_METHOD}.delete", slaid=slaid)
+        return self._call(f"{self.API_METHOD}.delete", slaids=slaids)
 
-    def get(self, slaid=None, **filters):
+    def get(self, slaids=None, **filters):
         """
         Retrieve SLA objects according to the given parameters.
         
         Args:
-            slaid (str|list, optional): Return only SLAs with the given IDs.
+            slaids (str|list, optional): Return only SLAs with the given IDs.
             
         Keyword Args (filters):
             serviceids (list, optional): Return only SLAs that apply to the given services.
@@ -95,19 +95,19 @@ class SLAResource(ZabbixBase):
             >>> slas = zapi.slas.get()
             >>> 
             >>> # Get SLA by ID
-            >>> sla = zapi.slas.get(slaid="1")
+            >>> sla = zapi.slas.get(slaids="1")
         
         See Also:
             Zabbix API Documentation: https://www.zabbix.com/documentation/7.0/en/manual/api/reference/sla/get
         """
-        return self._call(f"{self.API_METHOD}.get", slaid=slaid, **filters)
+        return self._call(f"{self.API_METHOD}.get", slaids=slaids, **filters)
 
     def get_sli(self, **params):
         """
         Retrieve Service Level Indicator (SLI) data.
         
         Keyword Args (params):
-            slaid (str, required): SLA ID.
+            slaids (str|list, required): SLA ID or list of IDs.
             period_from (int, required): Start time of the period (Unix timestamp).
             period_to (int, required): End time of the period (Unix timestamp).
             periods (int, optional): Number of periods to retrieve.
@@ -119,7 +119,7 @@ class SLAResource(ZabbixBase):
         
         Example:
             >>> sli = zapi.slas.get_sli(
-            ...     slaid="1",
+            ...     slaids=["1", "2"],
             ...     period_from=timestamp_start,
             ...     period_to=timestamp_end
             ... )
