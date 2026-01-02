@@ -102,7 +102,7 @@ class SLAResource(ZabbixBase):
         """
         return self._call(f"{self.API_METHOD}.get", slaids=slaids, **filters)
 
-    def get_sli(self, **params):
+    def getsli(self, **params):
         """
         Retrieve Service Level Indicator (SLI) data.
         
@@ -118,7 +118,7 @@ class SLAResource(ZabbixBase):
             dict: API response containing SLI data.
         
         Example:
-            >>> sli = zapi.slas.get_sli(
+            >>> sli = zapi.slas.getsli(
             ...     slaids=["1", "2"],
             ...     period_from=timestamp_start,
             ...     period_to=timestamp_end
