@@ -66,23 +66,31 @@ class ProxyResource(ZabbixBase):
         """
         return self._call(f"{self.API_METHOD}.delete", proxyid=proxyid)
 
-    def get(self, proxyid=None, **filters):
+    def get(self, proxyids=None, **filters):
         """
         Retrieve proxies according to the given parameters.
         
         Args:
-            proxyid (str|list, optional): Return only proxies with the given IDs.
+            proxyids (list, optional): Return only proxies with the given IDs.
             
         Keyword Args (filters):
-            selectHosts (str|list, optional): Include hosts monitored by the proxy in the result.
-            selectInterface (str|bool, optional): Include proxy interface in the result.
-            filter (dict, optional): Filter proxies by given properties.
-            search (dict, optional): Search proxies by given properties (case-insensitive).
-            output (str|list, optional): Object properties to be returned.
+            proxy_groupids (str|list, optional): Return only proxies that belong to the given proxy groups.
+            selectAssignedHosts (str|list, optional): Return an assignedHosts property with the hosts assigned to the proxy. Supports count.
+            selectHosts (str|list, optional): Return a hosts property with the hosts monitored by the proxy. Supports count.
+            selectProxyGroup (str|list, optional): Return a proxyGroup property with the proxy group object.
+            sortfield (str|list, optional): Sort the result by the given properties. Possible values: proxyid, name, operating_mode.
             countOutput (bool, optional): Return the number of records instead of actual data.
-            sortfield (str|list, optional): Field to sort by.
-            sortorder (str, optional): Sort order ("ASC" or "DESC").
+            editable (bool, optional): If true, only return objects that the user has write permissions to.
+            excludeSearch (bool, optional): Return results that do not match the criteria given in the search parameter.
+            filter (dict, optional): Filter proxies by given properties.
             limit (int, optional): Limit the number of records returned.
+            output (str|list, optional): Object properties to be returned.
+            preservekeys (bool, optional): Use IDs as keys in the resulting array.
+            search (dict, optional): Search proxies by given properties (case-insensitive).
+            searchByAny (bool, optional): Return results that match any of the criteria given in the search parameter instead of all of them.
+            searchWildcardsEnabled (bool, optional): Enable the use of "*" as a wildcard character in the search parameter.
+            sortorder (str|list, optional): Sort order ("ASC" or "DESC").
+            startSearch (bool, optional): Return results that match the criteria given in the search parameter.
         
         Returns:
             dict: API response containing proxies matching the criteria.
@@ -97,7 +105,7 @@ class ProxyResource(ZabbixBase):
         See Also:
             Zabbix API Documentation: https://www.zabbix.com/documentation/7.0/en/manual/api/reference/proxy/get
         """
-        return self._call(f"{self.API_METHOD}.get", proxyid=proxyid, **filters)
+        return self._call(f"{self.API_METHOD}.get", proxyids=proxyids, **filters)
     
     def update(self, proxyid, **params):
         """

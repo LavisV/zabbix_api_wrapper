@@ -138,8 +138,10 @@ class HostResource(ZabbixBase):
             >>> # Get hosts by group ID with items
             >>> hosts = zapi.hosts.get(groupids=["1"], selectItems="extend")
             >>> 
-            >>> # Filter hosts by status
-            >>> active_hosts = zapi.hosts.get(filter={"status": "0"})
+            >>> # Get hosts by proxy ID
+            >>> hosts = zapi.hosts.get(proxyids=["1"], output="extend")
+            >>> 
+
         
         See Also:
             Zabbix API Documentation: https://www.zabbix.com/documentation/7.0/en/manual/api/reference/host/get
