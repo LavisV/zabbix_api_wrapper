@@ -107,7 +107,7 @@ class SLAResource(ZabbixBase):
         Retrieve Service Level Indicator (SLI) data.
         
         Keyword Args (params):
-            slaids (str|list, required): SLA ID or list of IDs.
+            slaid (str|list, required): SLA ID to retrieve SLI for.
             period_from (int, required): Start time of the period (Unix timestamp).
             period_to (int, required): End time of the period (Unix timestamp).
             periods (int, optional): Number of periods to retrieve.
@@ -118,7 +118,7 @@ class SLAResource(ZabbixBase):
         
         Example:
             >>> sli = zapi.slas.getsli(
-            ...     slaids=["1", "2"],
+            ...     slaid=220,
             ...     period_from=timestamp_start,
             ...     period_to=timestamp_end
             ... )

@@ -46,34 +46,34 @@ class ServiceResource(ZabbixBase):
         """
         return self._call(f"{self.API_METHOD}.create", **params)
     
-    def delete(self, serviceid):
+    def delete(self, serviceids):
         """
         Delete services.
         
         Args:
-            serviceid (str|list): ID or list of IDs of services to delete.
+            serviceids (str|list): ID or list of IDs of services to delete.
         
         Returns:
             dict: API response containing the IDs of deleted services.
         
         Example:
             >>> # Delete a single service
-            >>> zapi.services.delete(serviceid="1")
+            >>> zapi.services.delete(serviceids="1")
             >>> 
             >>> # Delete multiple services
-            >>> zapi.services.delete(serviceid=["1", "2"])
+            >>> zapi.services.delete(serviceids=["1", "2"])
         
         See Also:
             Zabbix API Documentation: https://www.zabbix.com/documentation/7.0/en/manual/api/reference/service/delete
         """
-        return self._call(f"{self.API_METHOD}.delete", serviceid=serviceid)
+        return self._call(f"{self.API_METHOD}.delete", serviceids=serviceids)
 
-    def get(self, serviceid=None, **filters):
+    def get(self, serviceids=None, **filters):
         """
         Retrieve services according to the given parameters.
         
         Args:
-            serviceid (str|list, optional): Return only services with the given IDs.
+            serviceids (str|list, optional): Return only services with the given IDs.
             
         Keyword Args (filters):
             parentids (list, optional): Return only services that are children of the given services.
@@ -86,7 +86,7 @@ class ServiceResource(ZabbixBase):
             selectTimes (str|list, optional): Include time periods in the result.
             filter (dict, optional): Filter services by given properties.
             search (dict, optional): Search services by given properties (case-insensitive).
-            output (str|list, optional): Object properties to be returned.
+            output (str|list, optional): Object properties to be returned. Valid values: "serviceid", "uuid", "name", "status", "algorithm", "sortorder", "weight", "propagation_rule", "propagation_value", "description", "created_at", "readonly", or "extend" for all properties.
             countOutput (bool, optional): Return the number of records instead of actual data.
             sortfield (str|list, optional): Field to sort by.
             sortorder (str, optional): Sort order ("ASC" or "DESC").
@@ -105,14 +105,14 @@ class ServiceResource(ZabbixBase):
         See Also:
             Zabbix API Documentation: https://www.zabbix.com/documentation/7.0/en/manual/api/reference/service/get
         """
-        return self._call(f"{self.API_METHOD}.get", serviceid=serviceid, **filters)
+        return self._call(f"{self.API_METHOD}.get", serviceids=serviceids, **filters)
     
-    def update(self, serviceid, **params):
+    def update(self, serviceids, **params):
         """
         Update existing services.
         
         Args:
-            serviceid (str): ID of the service to update.
+            serviceids (str|list): ID or list of IDs of services to update.
             
         Keyword Args (params):
             name (str, optional): Name of the service.
@@ -134,7 +134,7 @@ class ServiceResource(ZabbixBase):
         
         Example:
             >>> zapi.services.update(
-            ...     serviceid="1",
+            ...     serviceids="1",
             ...     name="Updated Service Name",
             ...     algorithm=2
             ... )
@@ -142,4 +142,4 @@ class ServiceResource(ZabbixBase):
         See Also:
             Zabbix API Documentation: https://www.zabbix.com/documentation/7.0/en/manual/api/reference/service/update
         """
-        return self._call(f"{self.API_METHOD}.update", serviceid=serviceid, **params)
+        return self._call(f"{self.API_METHOD}.update", serviceids=serviceids, **params)

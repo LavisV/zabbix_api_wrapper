@@ -45,34 +45,34 @@ class DiscoveryRuleResource(ZabbixBase):
         """
         return self._call(f"{self.API_METHOD}.create", **params)
     
-    def delete(self, droleid):
+    def delete(self, druleid):
         """
         Delete network discovery rules.
         
         Args:
-            droleid (str|list): ID or list of IDs of discovery rules to delete.
+            druleid (str|list): ID or list of IDs of discovery rules to delete.
         
         Returns:
             dict: API response containing the IDs of deleted discovery rules.
         
         Example:
             >>> # Delete a single discovery rule
-            >>> zapi.discovery_rules.delete(droleid="1")
+            >>> zapi.discovery_rules.delete(druleid="1")
             >>> 
             >>> # Delete multiple discovery rules
-            >>> zapi.discovery_rules.delete(droleid=["1", "2"])
+            >>> zapi.discovery_rules.delete(druleid=["1", "2"])
         
         See Also:
             Zabbix API Documentation: https://www.zabbix.com/documentation/7.0/en/manual/api/reference/drule/delete
         """
-        return self._call(f"{self.API_METHOD}.delete", droleid=droleid)
+        return self._call(f"{self.API_METHOD}.delete", druleid=druleid)
 
-    def get(self, droleid=None, **filters):
+    def get(self, druleid=None, **filters):
         """
         Retrieve network discovery rules according to the given parameters.
         
         Args:
-            droleid (str|list, optional): Return only discovery rules with the given IDs.
+            druleid (str|list, optional): Return only discovery rules with the given IDs.
             
         Keyword Args (filters):
             selectDChecks (str|list, optional): Include discovery checks in the result.
@@ -93,19 +93,19 @@ class DiscoveryRuleResource(ZabbixBase):
             >>> discovery_rules = zapi.discovery_rules.get()
             >>> 
             >>> # Get discovery rule with checks
-            >>> discovery_rule = zapi.discovery_rules.get(droleid="1", selectDChecks="extend")
+            >>> discovery_rule = zapi.discovery_rules.get(druleid="1", selectDChecks="extend")
         
         See Also:
             Zabbix API Documentation: https://www.zabbix.com/documentation/7.0/en/manual/api/reference/drule/get
         """
-        return self._call(f"{self.API_METHOD}.get", droleid=droleid, **filters)
+        return self._call(f"{self.API_METHOD}.get", druleid=druleid, **filters)
     
-    def update(self, droleid, **params):
+    def update(self, druleid, **params):
         """
         Update existing network discovery rules.
         
         Args:
-            droleid (str): ID of the discovery rule to update.
+            druleid (str): ID of the discovery rule to update.
             
         Keyword Args (params):
             name (str, optional): Name of the discovery rule.
@@ -121,7 +121,7 @@ class DiscoveryRuleResource(ZabbixBase):
         
         Example:
             >>> zapi.discovery_rules.update(
-            ...     droleid="1",
+            ...     druleid="1",
             ...     name="Updated Discovery Rule Name",
             ...     status=0
             ... )
@@ -129,4 +129,4 @@ class DiscoveryRuleResource(ZabbixBase):
         See Also:
             Zabbix API Documentation: https://www.zabbix.com/documentation/7.0/en/manual/api/reference/drule/update
         """
-        return self._call(f"{self.API_METHOD}.update", droleid=droleid, **params)
+        return self._call(f"{self.API_METHOD}.update", druleid=druleid, **params)
