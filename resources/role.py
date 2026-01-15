@@ -36,34 +36,34 @@ class RoleResource(ZabbixBase):
         """
         return self._call(f"{self.API_METHOD}.create", **params)
     
-    def delete(self, roleid):
+    def delete(self, roleids):
         """
         Delete roles.
         
         Args:
-            roleid (str|list): ID or list of IDs of roles to delete.
+            roleids (str|list): ID or list of IDs of roles to delete.
         
         Returns:
             dict: API response containing the IDs of deleted roles.
         
         Example:
             >>> # Delete a single role
-            >>> zapi.roles.delete(roleid="1")
+            >>> zapi.roles.delete(roleids="1")
             >>> 
             >>> # Delete multiple roles
-            >>> zapi.roles.delete(roleid=["1", "2"])
+            >>> zapi.roles.delete(roleids=["1", "2"])
         
         See Also:
             Zabbix API Documentation: https://www.zabbix.com/documentation/7.0/en/manual/api/reference/role/delete
         """
-        return self._call(f"{self.API_METHOD}.delete", roleid=roleid)
+        return self._call(f"{self.API_METHOD}.delete", roleids=roleids)
 
-    def get(self, roleid=None, **filters):
+    def get(self, roleids=None, **filters):
         """
         Retrieve roles according to the given parameters.
         
         Args:
-            roleid (str|list, optional): Return only roles with the given IDs.
+            roleids (str|list, optional): Return only roles with the given IDs.
             
         Keyword Args (filters):
             selectRules (str|list, optional): Include role rules in the result.
@@ -83,19 +83,19 @@ class RoleResource(ZabbixBase):
             >>> roles = zapi.roles.get()
             >>> 
             >>> # Get role with rules
-            >>> role = zapi.roles.get(roleid="1", selectRules="extend")
+            >>> role = zapi.roles.get(roleids="1", selectRules="extend")
         
         See Also:
             Zabbix API Documentation: https://www.zabbix.com/documentation/7.0/en/manual/api/reference/role/get
         """
-        return self._call(f"{self.API_METHOD}.get", roleid=roleid, **filters)
+        return self._call(f"{self.API_METHOD}.get", roleids=roleids, **filters)
     
-    def update(self, roleid, **params):
+    def update(self, roleids, **params):
         """
         Update existing roles.
         
         Args:
-            roleid (str): ID of the role to update.
+            roleids (str): ID of the role to update.
             
         Keyword Args (params):
             name (str, optional): Name of the role.
@@ -108,11 +108,11 @@ class RoleResource(ZabbixBase):
         
         Example:
             >>> zapi.roles.update(
-            ...     roleid="1",
+            ...     roleids="1",
             ...     name="Updated Role Name"
             ... )
         
         See Also:
             Zabbix API Documentation: https://www.zabbix.com/documentation/7.0/en/manual/api/reference/role/update
         """
-        return self._call(f"{self.API_METHOD}.update", roleid=roleid, **params)
+        return self._call(f"{self.API_METHOD}.update", roleids=roleids, **params)

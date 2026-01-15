@@ -175,7 +175,7 @@ class ZabbixClient:
         self.proxy_group = ProxyGroupResource(self)
         self.regular_expression = RegularExpressionResource(self)
         self.reports = ReportResource(self)
-        self.roles = RoleResource(self)
+        self.role = RoleResource(self)
         self.scripts = ScriptResource(self)
         self.services = ServiceResource(self)
         self.settings = SettingsResource(self)
