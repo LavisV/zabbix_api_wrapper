@@ -29,7 +29,7 @@ class TrendResource(ZabbixBase):
             dict: API response containing trend records.
         
         Example:
-            >>> trends = zapi.trends.get(
+            >>> trends = zapi.trend.get(
             ...     itemids=["12345"],
             ...     time_from=timestamp,
             ...     time_till=timestamp_end,

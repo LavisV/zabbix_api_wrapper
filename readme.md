@@ -109,7 +109,7 @@ All Zabbix API resources are available as attributes on the client:
 - `regular_expression`, `reports`, `roles`, `scripts`
 - `services`, `settings`, `sla`, `tasks`
 - `templates`, `template_dashboard`, `template_group`
-- `tokens`, `trends`, `triggers`, `trigger_prototype`
+- `tokens`, `trend`, `triggers`, `trigger_prototype`
 - `users`, `user_directory`, `user_group`, `user_macro`
 - `value_map`, `web_scenario`
 
